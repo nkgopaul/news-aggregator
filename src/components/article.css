@@ -1,0 +1,89 @@
+.articleLi {
+    border-radius: 5px;
+    background-color: #446CB3;
+    width: 100%;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    display:inline-block;
+}
+
+    .articleDetailsContainer {
+        width: 50%;
+    }
+
+        .articleTitle {
+            margin: 0;
+            padding-top: 1em;
+            padding-bottom: 0;
+            padding-left: 1em;
+        }
+
+        .link {
+            text-decoration: none;
+            color:black;
+        }
+
+        .link:visited {
+            text-decoration: none;
+            color:black;
+        }
+
+        .link:hover { 
+            text-decoration: none;
+            color:red;
+        }
+
+        .link:focus {
+            text-decoration: none;
+            color:black;
+        }
+
+        .link:hover, .link:active {
+            text-decoration: none;
+            color:black;
+        }
+
+        .articleAuthor {
+            margin: 0;
+            padding-top: .2em;
+            padding-left: 1.5em;
+            font-size: 14px;
+        }
+
+        .articleSubmittedByAt {
+            margin: 0;
+            padding-top: .2em;
+            padding-left: 1.5em;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+    .articleUpvotesContainer {
+        display: inline-block;
+    }
+        
+        .articleUpvotesText {
+            margin: 0;
+            padding-bottom: 0;
+            padding-left: 1.5em;
+            padding-right: .3em;
+            font-size: 14px;
+            display:inline-block;
+        }
+
+        .articleUpvotesButton {
+            display:inline-block;
+        }
+
+        .articleUpvotesButtonSelected {
+            display:inline-block;
+            background-color:green;
+        }
+    
+    .commentsText {
+        margin: 0;
+        padding-top: .2em;
+        padding-left: 1.5em;
+        font-size: 14px;
+        font-weight: bold;
+    }

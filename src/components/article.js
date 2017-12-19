@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import firebase from '../firebase.js'
 import CommentsList from './comments-list.js'
 import CommentEntry from './comment-entry.js'
+import styles from './article.css'
 
 class Article extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class Article extends Component {
             upvotes: this.props.upvotes ? this.props.upvotes.length : 0,
         }
         this.handleUpvote = this.handleUpvote.bind(this)
-        this.handleUndoUpvote = this.handleUndoUpvote.bind(this)        
+        this.handleUndoUpvote = this.handleUndoUpvote.bind(this)     
     }
 
     componentDidMount() {
@@ -39,27 +40,34 @@ class Article extends Component {
 
     render() {
         return (
-            <li key={this.props.id}>
-                <h3><a href={this.props.url}>{this.props.title}</a></h3>
-                <p>{this.props.author}</p>
-                <p>Upvotes {this.props.upvotes ? Object.keys(this.props.upvotes).length : 0}</p>
-                {this.props.upvotes && this.props.upvotes[this.props.user.uid] ? 
-                    <button onClick={this.handleUndoUpvote}>Undo Upvote</button>                  
-                    :
-                    <button onClick={this.handleUpvote}>Upvote</button>
-                }
-                <p>Submitted by {this.props.user.displayName} at {new Date(this.props.date_added).toLocaleString()}</p>
-                {this.props.comments ?
-                    <CommentsList 
-                        comments={this.props.comments}
+            <li className={styles.articleLi} key={this.props.id}>
+                <div>
+                    <h3 className={styles.articleTitle}><a className={styles.link} href={this.props.url}>{this.props.title}</a></h3>
+                    <p className={styles.articleAuthor}>{this.props.author}</p>
+                    <p className={styles.articleSubmittedByAt}>Submitted by {this.props.user.displayName} at {new Date(this.props.date_added).toLocaleString()}</p>
+                </div>
+                <div className={styles.articleUpvotesContainer}>
+                    <p className={styles.articleUpvotesText}>Upvotes: {this.props.upvotes ? Object.keys(this.props.upvotes).length : 0}</p>
+                    {this.props.upvotes && this.props.upvotes[this.props.user.uid] ? 
+                        <button className={styles.articleUpvotesButtonSelected} onClick={this.handleUndoUpvote}>+1</button>                  
+                        :
+                        <button className={styles.articleUpvotesButton} onClick={this.handleUpvote}>+1</button>
+                    }
+                </div>
+                <div>
+                    <p className={styles.commentsText}>Comments</p>
+                    {this.props.comments ?
+                        <CommentsList 
+                            comments={this.props.comments}
+                        />
+                        :
+                        null
+                    }
+                    <CommentEntry
+                        user={this.props.user}
+                        article_id={this.props.id}
                     />
-                    :
-                    null
-                }
-                <CommentEntry
-                    user={this.props.user}
-                    article_id={this.props.id}
-                />
+                </div>
             </li>
         )
     }

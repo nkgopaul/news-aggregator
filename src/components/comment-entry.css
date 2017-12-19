@@ -1,0 +1,15 @@
+.container {
+    border-radius: 5px;
+    margin-bottom: 0.1em;
+    margin-top: 0.5em;
+    margin-right: .7em;
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+    .input {
+        width: 100%;
+        height: 2em;
+        margin-right: .5em;
+        border-radius: 5px;
+    }

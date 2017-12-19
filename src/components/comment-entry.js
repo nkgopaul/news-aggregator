@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import firebase from '../firebase.js'
+import styles from './comment-entry.css'
 
 class CommentEntry extends Component {
     constructor(props) {
@@ -26,9 +27,9 @@ class CommentEntry extends Component {
 
     render() {
         return (
-            <section className='add-comment'>
+            <section className={styles.container}>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="title" placeholder="Enter comment" />
+                    <input className={styles.input} type="text" name="title" placeholder="Enter comment" />
                     <button>Submit</button>
                 </form>
             </section>

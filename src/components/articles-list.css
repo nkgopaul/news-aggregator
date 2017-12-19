@@ -1,0 +1,23 @@
+.listContainer {
+    width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.sortContainer {
+    width: 100%;
+}
+
+    .sortText {
+        display: inline-block;      
+        margin-right: .2em;  
+    }
+
+    .sortForm {
+        display: inline-block;        
+    }
+
+.list {
+    list-style: none;
+    padding: 0;
+}

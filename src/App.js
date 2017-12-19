@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { auth, provider } from './firebase.js'
 import Entry from './components/entry.js'
 import ArticlesList from './components/articles-list.js'
-import styles from './App.scss'
+import styles from './App.css'
 
 class App extends Component {
   constructor() {
@@ -39,12 +39,12 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <div className={styles.header}>
-          <h1>News Aggregator</h1>
+        <div className={styles.headerDiv}>
+          <h1 className={styles.headerText}>News Aggregator</h1>
           {this.state.user ? 
-            <button onClick={this.logout}>Log Out</button> 
+            <button onClick={this.logout} className={styles.headerButton}>Log Out</button> 
             :
-            <button onClick={this.login}>Log In</button> 
+            <button onClick={this.login} className={styles.headerButton}>Log In</button> 
           }
         </div>
         {this.state.user ? 
@@ -58,7 +58,7 @@ class App extends Component {
           </div>
           :
           <div className='wrapper'>
-            <p>You must authenticate via Google to view the News Aggregator.</p>
+            <p className={styles.authText}><span role="img">🙊</span> Please authenticate via Google to view the News Aggregator.</p>
           </div>}
       </div>
     )

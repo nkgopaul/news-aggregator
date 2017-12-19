@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import firebase from '../firebase.js'
 import Article from './article.js'
+import styles from './articles-list.css'
 
 class ArticlesList extends Component {
     constructor() {
@@ -57,28 +58,29 @@ class ArticlesList extends Component {
     render() {
         const sorted_data = this.handleSort(this.state.articles_data)
         return (
-            <section className='articles-list'> 
-                <div className='wrapper'>
-                    <select onChange={this.changeFilter}>
+            <section className={styles.listContainer}> 
+                <div className={styles.sortContainer}>
+                    <p className={styles.sortText}>Sort by:</p>
+                    <select className={styles.sortForm} onChange={this.changeFilter}>
                         <option>Date</option>
                         <option>Alphabetically</option>
                     </select>
-                    <ul>
-                        {sorted_data.map((article) => 
-                            <Article
-                                key={article.id}
-                                id={article.id}
-                                url={article.url}
-                                title={article.title}
-                                author={article.author}
-                                upvotes={article.upvotes}
-                                user={this.props.user}
-                                date_added={article.date_added}
-                                comments={article.comments}
-                            />
-                        )}
-                    </ul>
                 </div>
+                <ul className={styles.list}>
+                    {sorted_data.map((article) => 
+                        <Article
+                            key={article.id}
+                            id={article.id}
+                            url={article.url}
+                            title={article.title}
+                            author={article.author}
+                            upvotes={article.upvotes}
+                            user={this.props.user}
+                            date_added={article.date_added}
+                            comments={article.comments}
+                        />
+                    )}
+                </ul>
             </section>
         )
     }

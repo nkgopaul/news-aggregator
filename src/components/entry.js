@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import firebase from '../firebase.js'
+import styles from './entry.css'
 
 class Entry extends Component {
     constructor() {
@@ -30,12 +31,12 @@ class Entry extends Component {
 
     render() {
         return (
-            <section className='add-article'>
+            <section className={styles.section}>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="title" placeholder="Title" />
-                    <input type="text" name="Author" placeholder="Author" />
-                    <input type="text" name="URL" placeholder="URL" />
-                    <button>Submit</button>
+                    <input className={styles.inputs} type="text" name="title" placeholder="Title" />
+                    <input className={styles.inputs} type="text" name="Author" placeholder="Author" />
+                    <input className={styles.inputs} type="text" name="URL" placeholder="URL" />
+                    <button className={styles.button}>Submit</button>
                 </form>
             </section>
         )
